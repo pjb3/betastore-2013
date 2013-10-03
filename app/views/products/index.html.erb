@@ -1,0 +1,8 @@
+<section class="products">
+  <% @products.each do |product| %>
+    <article>
+      <%= image_tag product.image_url %>
+      <h2><%= product.name %></h2>
+    </article>
+  <% end %>
+</section>
