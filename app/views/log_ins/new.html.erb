@@ -4,16 +4,12 @@
   <p style="color: red"><%= flash[:alert] %></p>
 <% end %>
 
-<form method="POST" action="/log_in">
-  <label>
-    Email
-    <input type="email" name="email" />
-  </label>
+<%= form_tag do %>
+  <%= label_tag :email %>
+  <%= email_field_tag :email %>
   
-  <label>
-    Password
-    <input type="password" name="password" />
-  </label>
-  
-  <button type="submit">Log In</button>
-</form>
+  <%= label_tag :password %>
+  <%= password_field_tag :password %>
+
+  <%= button_tag "Log In" %>
+<% end %>

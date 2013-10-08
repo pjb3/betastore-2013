@@ -8,7 +8,11 @@
   <% @products.each do |product| %>
     <article>
       <%= image_tag product.image_url %>
-      <h2><%= product.name %></h2>
+      <h2><%= link_to product_title(product), product_path(product) %></h2>
+      <p>
+        <%= number_to_currency product.price %>,
+        Added <%= time_ago_in_words product.created_at %>
+      </p>
     </article>
   <% end %>
 </section>
