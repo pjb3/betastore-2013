@@ -1,4 +1,4 @@
-<% if cookies[:email] %>
+<% if logged_in? %>
   <%= link_to "Log Out", log_out_path, method: 'post' %>
 <% else %>
   <%= link_to "Log In", log_in_path %>
@@ -8,7 +8,7 @@
   <% @products.each do |product| %>
     <article>
       <%= image_tag product.image_url %>
-      <h2><%= link_to product_title(product), product_path(product) %></h2>
+      <h2><%= link_to product_title(product).html_safe, product_path(product) %></h2>
       <p>
         <%= number_to_currency product.price %>,
         Added <%= time_ago_in_words product.created_at %> ago

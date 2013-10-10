@@ -26,3 +26,5 @@
 
   <%= f.submit 'Sign Up' %>
 <% end %>
+
+<p>Already have an account? <%= link_to "Log In", log_in_path %></p>

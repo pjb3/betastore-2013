@@ -29,6 +29,7 @@ gem 'jbuilder', '~> 1.2'
 
 group :development do
   gem 'hirb'
+  gem 'quiet_assets'
 end
 
 group :doc do
@@ -37,7 +38,7 @@ group :doc do
 end
 
 # Use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
+gem 'bcrypt-ruby', '~> 3.0.0'
 
 # Use unicorn as the app server
 # gem 'unicorn'

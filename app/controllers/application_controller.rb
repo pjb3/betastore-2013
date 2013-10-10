@@ -10,7 +10,8 @@ class ApplicationController < ActionController::Base
     redirect_to '/log_in' unless logged_in?
   end
 
+  helper_method :logged_in?
   def logged_in?
-    cookies[:email].present?
+    cookies.signed[:customer_id].present?
   end
 end
