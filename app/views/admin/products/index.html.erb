@@ -1,0 +1,29 @@
+<% if flash[:notice].present? %>
+  <div class="alert alert-success"><%= notice %></div>
+<% end %>
+
+<ol class="breadcrumb">
+  <li class="active">Products</li>
+</ol>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Price</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @products.each do |product| %>
+      <tr>
+        <td><%= link_to product.name, admin_product_path(product) %></td>
+        <td><%= number_to_currency product.price %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<p>
+  <%= link_to 'New Product', new_admin_product_path, class: 'btn btn-primary' %>
+</p>

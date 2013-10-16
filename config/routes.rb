@@ -1,4 +1,9 @@
 Betastore::Application.routes.draw do
+  namespace :admin do
+    resources :products
+    root :to => 'products#index'
+  end
+
   resources :products, only: [:index, :show]
 
   resources :subscriptions, only: [:new, :create, :show]
