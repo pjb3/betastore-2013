@@ -1,4 +1,6 @@
 class SubscriptionsController < ApplicationController
+  skip_before_filter :require_log_in
+
   before_action :set_subscription, only: [:show, :edit, :update, :destroy]
 
   # GET /subscriptions
@@ -22,7 +24,7 @@ class SubscriptionsController < ApplicationController
     if @subscription.save
       redirect_to @subscription, notice: 'Subscription was successfully created.'
     else
-      render action: 'new'        
+      render action: 'new'
     end
   end
 
