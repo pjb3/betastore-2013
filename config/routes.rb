@@ -19,5 +19,5 @@ Betastore::Application.routes.draw do
   post '/log_in'  => 'log_ins#create'
   post '/log_out' => 'log_ins#destroy', as: 'log_out'
 
-  root :to => 'subscriptions#new'
+  root :to => 'products#index'
 end
