@@ -14,4 +14,9 @@ class ApplicationController < ActionController::Base
   def logged_in?
     cookies.signed[:customer_id].present?
   end
+
+  helper_method :current_customer
+  def current_customer
+    @current_customer ||= Customer.find(cookies.signed[:customer_id])
+  end
 end
