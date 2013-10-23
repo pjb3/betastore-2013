@@ -9,4 +9,8 @@ class ProductsController < ApplicationController
       format.rss
     end
   end
+
+  def show
+    @product = Product.find(params[:id])
+  end
 end
