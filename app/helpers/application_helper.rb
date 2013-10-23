@@ -1,6 +1,6 @@
 module ApplicationHelper
   def product_title(product)
-    "#{product.name} - ##{product.id}"
+    product.name
   end
 
   def copyright_year
