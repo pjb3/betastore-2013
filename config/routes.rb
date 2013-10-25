@@ -12,6 +12,9 @@ Betastore::Application.routes.draw do
     resource :refund
   end
 
+   get '/forgot_password' => 'password_resets#new', as: 'forgot_password'
+  post '/forgot_password' => 'password_resets#create'
+
    get '/sign_up' => 'customers#new', as: 'sign_up'
   post '/sign_up' => 'customers#create'
 
