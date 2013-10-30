@@ -1,21 +1,19 @@
 <h1>Log In</h1>
 
-<% if flash[:alert] %>
-  <p style="color: red"><%= flash[:alert] %></p>
-<% end %>
-
 <%= form_tag do %>
   <div>
     <%= label_tag :email %>
     <%= email_field_tag :email %>
   </div>
-  
+
   <div>
     <%= label_tag :password %>
     <%= password_field_tag :password %>
   </div>
-  
+
   <%= button_tag "Log In" %>
 <% end %>
 
 <p>Don't have an account yet? <%= link_to "Sign Up", sign_up_path %></p>
+
+<p>Forgot your password? <%= link_to "Reset It", forgot_password_path %></p>

@@ -1,0 +1,18 @@
+<h1>Change Your Password</h1>
+
+<% if @password_reset.errors.present? %>
+  <ul class="error">
+  <% @password_reset.errors.full_messages.each do |err| %>
+    <li><%= err %></li>
+  <% end %>
+</ul>
+<% end %>
+
+<%= form_tag do %>
+  <label>
+    New Password:
+    <%= password_field_tag :password %>
+  </label>
+
+  <%= submit_tag "Change Password" %>
+<% end %>

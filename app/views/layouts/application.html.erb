@@ -9,6 +9,15 @@
   <body>
     <div class="container">
       <%= image_tag "logo.jpg", width: 600 %>
+
+      <% if flash[:alert] %>
+        <p class="alert alert-warning"><%= flash[:alert] %></p>
+      <% end %>
+
+      <% if flash[:notice] %>
+        <p class="alert alert-success"><%= flash[:notice] %></p>
+      <% end %>
+
       <%= yield %>
       <%= render 'layouts/footer' %>
     </div>
