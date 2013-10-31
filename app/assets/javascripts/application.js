@@ -14,3 +14,22 @@
 //= require jquery_ujs
 //= require bootstrap
 //= require_tree .
+$(document).ready(function(){
+  $('.add_to_cart').click(function(){
+    try {
+      var action = $(this).parents('form').attr('action');
+      $.ajax({
+        type: "POST",
+        url: action,
+        dataType: 'json',
+        success: function(json) {
+          $('#cart_item_count').text(json.item_count);
+        }
+      });
+    } catch(e) {
+      console.log(e);
+    } finally {
+      return false;
+    }
+  });
+});

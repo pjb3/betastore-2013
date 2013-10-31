@@ -1,3 +1,7 @@
+<%= link_to "#" do %>
+  Cart (<span id="cart_item_count"><%= cart_item_count %></span>)
+<% end %>
+|
 <% if logged_in? %>
   <%= link_to "Log Out", log_out_path, method: 'post' %>
 <% else %>
@@ -12,6 +16,9 @@
       <p>
         <%= number_to_currency product.price %>,
         Added <%= time_ago_in_words product.created_at %> ago
+      </p>
+      <p>
+        <%= button_to "Add To Cart", add_to_cart_path(product), class: 'btn btn-primary add_to_cart' %>
       </p>
     </article>
   <% end %>
