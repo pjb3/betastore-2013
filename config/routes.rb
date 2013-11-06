@@ -12,6 +12,7 @@ Betastore::Application.routes.draw do
     resource :refund
   end
 
+  get '/cart' => 'cart_items#index', as: 'cart_items'
   post '/products/:product_id/cart_items' => 'cart_items#create', as: 'add_to_cart'
 
    get '/forgot_password' => 'password_resets#new', as: 'forgot_password'

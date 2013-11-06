@@ -1,4 +1,4 @@
-<%= link_to "#" do %>
+<%= link_to cart_items_path, class: 'cart' do %>
   Cart (<span id="cart_item_count"><%= cart_item_count %></span>)
 <% end %>
 |
@@ -7,6 +7,8 @@
 <% else %>
   <%= link_to "Log In", log_in_path %>
 <% end %>
+
+<div id="cart" style="display: none"></div>
 
 <section class="products">
   <% @products.each do |product| %>
