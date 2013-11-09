@@ -1,6 +1,6 @@
 <h1>Your Cart</h1>
 
-<%= form_tag do %>
+<%= form_for(@order, url: checkout_path) do |f| %>
   <table class="table">
     <tr>
       <th>Product</th>
@@ -8,10 +8,12 @@
       <th>Price</th>
       <th>Total</th>
     </tr>
-    <% @order.line_items.each do |line_item| %>
+    <%= f.fields_for :line_items do |line_item_fields| %>
+      <% line_item = line_item_fields.object %>
+      <%= line_item_fields.hidden_field :product_id %>
       <tr>
         <td><%= line_item.product.name %></td>
-        <td><%= line_item.quantity %></td>
+        <td><%= line_item_fields.text_field :quantity %></td>
         <td><%= number_to_currency line_item.product.price %></td>
         <td><%= number_to_currency line_item.total_price %></td>
       </tr>

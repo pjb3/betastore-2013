@@ -11,6 +11,18 @@ class OrdersController < ApplicationController
   end
 
   def create
-    redirect_to root_path, notice: 'Your order has been placed'
+    @order = Order.new(order_params)
+    if @order.save
+      redirect_to root_path, notice: 'Your order has been placed'
+    else
+      flash.now[:alert] = @order.errors.full_messages.join(', ')
+      logger.error "errors: #{@order.errors.full_messages.join(', ')}"
+      render 'new'
+    end
+  end
+
+  protected
+  def order_params
+    params.require(:order).permit(line_items_attributes: [:product_id, :quantity])
   end
 end
