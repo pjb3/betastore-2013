@@ -1,6 +1,6 @@
 <h1>Your Cart</h1>
 
-<%= form_for(@order, url: checkout_path) do |f| %>
+<%= form_for @order, url: checkout_path, html: { class: 'form-horizontal', role: 'form' } do |f| %>
   <table class="table">
     <tr>
       <th>Product</th>
@@ -8,12 +8,12 @@
       <th>Price</th>
       <th>Total</th>
     </tr>
-    <%= f.fields_for :line_items do |line_item_fields| %>
-      <% line_item = line_item_fields.object %>
-      <%= line_item_fields.hidden_field :product_id %>
+    <%= f.fields_for :line_items do |li| %>
+      <% line_item = li.object %>
+      <%= li.hidden_field :product_id %>
       <tr>
         <td><%= line_item.product.name %></td>
-        <td><%= line_item_fields.text_field :quantity %></td>
+        <td><%= li.text_field :quantity %></td>
         <td><%= number_to_currency line_item.product.price %></td>
         <td><%= number_to_currency line_item.total_price %></td>
       </tr>
@@ -24,5 +24,42 @@
       <td><%= number_to_currency @order.total_price %></td>
     </tr>
   </table>
-  <%= submit_tag "Submit Order", class: 'btn btn-success' %>
+
+  <%= f.fields_for :credit_card do |cc| %>
+    <div class="form-group">
+      <%= cc.label :cardholder_name, 'Cardholder Name', class: 'col-sm-2 control-label' %>
+      <div class="col-sm-2">
+        <%= cc.text_field :cardholder_name, class: 'form-control' %>
+      </div>
+      <div class="col-sm-8"></div>
+    </div>
+
+    <div class="form-group">
+      <%= cc.label :card_number, 'Card Number', class: 'col-sm-2 control-label' %>
+      <div class="col-sm-2">
+        <%= cc.text_field :card_number, size: 16, maxlength: 16, class: 'form-control' %>
+      </div>
+      <div class="col-sm-8"></div>
+    </div>
+
+    <div class="form-group">
+      <%= cc.label :exp_month, 'Expiration Month', class: 'col-sm-2 control-label' %>
+      <div class="col-sm-1">
+        <%= cc.text_field :exp_month, size: 2, maxlength: 2, class: 'form-control' %>
+      </div>
+      <div class="col-sm-9"></div>
+    </div>
+
+    <div class="form-group">
+      <%= cc.label :exp_year, 'Expiration Year', class: 'col-sm-2 control-label' %>
+      <div class="col-sm-1">
+        <%= cc.text_field :exp_month, size: 4, maxlength: 4, class: 'form-control' %>
+      </div>
+      <div class="col-sm-9"></div>
+    </div>
+  <% end %>
+
+  <div class="col-sm-12">
+    <%= submit_tag "Submit Order", class: 'btn btn-success' %>
+  </div>
 <% end %>

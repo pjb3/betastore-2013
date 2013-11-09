@@ -1,0 +1,5 @@
+test:
+  cardholder_name: John Doe
+  card_number: 4111111111111111
+  exp_month: 1
+  exp_year: <%= 1.year.from_now.year %>
