@@ -10,4 +10,10 @@ class Product < ActiveRecord::Base
   def image_url
     "/products/#{name.downcase.tr(' ', '_')}.jpg"
   end
+
+  def self.in_category(category_id)
+    includes(:product_categorizations)
+      .where('product_categorizations.category_id' => category_id)
+  end
+
 end

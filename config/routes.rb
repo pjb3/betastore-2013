@@ -4,6 +4,8 @@ Betastore::Application.routes.draw do
     root :to => 'products#index'
   end
 
+  get '/categories/:category_id/products' => 'products#index', as: 'category_products'
+
   resources :products, only: [:index, :show]
 
   resources :subscriptions, only: [:new, :create, :show]
