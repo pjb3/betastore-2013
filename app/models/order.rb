@@ -1,7 +1,8 @@
 class Order < ActiveRecord::Base
   belongs_to :customer
+  belongs_to :credit_card
   has_many :line_items
-  accepts_nested_attributes_for :line_items
+  accepts_nested_attributes_for :line_items, :credit_card
 
   def self.recent
     where("placed_at > ?", 7.days.ago)
