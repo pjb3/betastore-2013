@@ -18,7 +18,7 @@ class ProductsController < ApplicationController
       scope = scope.in_category(params[:category_id])
     end
 
-    @products = scope.all
+    @products = scope.page(params[:page]).per(10)
 
     respond_to do |format|
       format.html
