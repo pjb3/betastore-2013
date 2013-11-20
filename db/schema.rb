@@ -72,6 +72,16 @@ ActiveRecord::Schema.define(version: 20131120000320) do
 
   add_index "password_resets", ["customer_id"], name: "index_password_resets_on_customer_id", using: :btree
 
+  create_table "product_categorizations", force: true do |t|
+    t.integer  "category_id"
+    t.integer  "product_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "product_categorizations", ["category_id"], name: "index_product_categorizations_on_category_id", using: :btree
+  add_index "product_categorizations", ["product_id"], name: "index_product_categorizations_on_product_id", using: :btree
+
   create_table "products", force: true do |t|
     t.string   "name"
     t.decimal  "price"
