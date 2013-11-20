@@ -28,6 +28,7 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 
 group :development do
+  gem 'faker'
   gem 'hirb'
   gem 'quiet_assets'
 end
