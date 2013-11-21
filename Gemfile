@@ -29,6 +29,8 @@ gem 'jbuilder', '~> 1.2'
 
 gem 'kaminari'
 
+gem 'rails_12factor', group: :production
+
 group :development do
   gem 'faker'
   gem 'hirb'
