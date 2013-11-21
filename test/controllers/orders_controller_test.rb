@@ -9,7 +9,7 @@ class OrdersControllerTest < ActionController::TestCase
   end
 
   test "redirects to home page with notice" do
-    post :create
+    post :create, order: { credit_card_attributes: {}, line_item_attributes: [] }
     assert_redirected_to root_path
     assert_equal "Your order has been placed", flash[:notice]
   end
