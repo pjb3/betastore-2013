@@ -6,6 +6,6 @@ class OrderTest < ActiveSupport::TestCase
   end
 
   test "an order placed 10 days ago is not returned by recent" do
-    assert !Order.recent.where?(id: orders(:older).id).exists?
+    assert !Order.recent.where(id: orders(:older).id).exists?
   end
 end
