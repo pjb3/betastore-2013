@@ -19,8 +19,8 @@ clothing.products << Product.create!(name: 'Shirt', price:  17.99)
 stuff.products << Product.create!(name: 'Sticker', price: 2.99)
 
 # The rest is fake data to simulate having a large product catalog
-1000.times do
-  categories.sample.products << Product.create!(
-    name: Faker::Commerce.product_name,
-    price: (rand(20) + rand(99)/100.0))
-end
+#1000.times do
+  #categories.sample.products << Product.create!(
+    #name: Faker::Commerce.product_name,
+    #price: (rand(20) + rand(99)/100.0))
+#end
