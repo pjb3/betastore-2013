@@ -1,7 +1,7 @@
 Betastore::Application.routes.draw do
   namespace :admin do
     resources :products
-    root :to => 'products#index'
+    root :to => 'dashboard#index'
   end
 
   get '/categories/:category_id/products' => 'products#index', as: 'category_products'

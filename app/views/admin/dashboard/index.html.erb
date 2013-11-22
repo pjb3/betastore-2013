@@ -1,0 +1,14 @@
+<h2>Orders</h2>
+
+<table class="table">
+  <tr>
+    <th>Day</th>
+    <th>Orders</th>
+  </tr>
+<% @days.each do |day, count| %>
+  <tr>
+    <td><%= day %></td>
+    <td><%= count %></td>
+  </tr>
+<% end %>
+</table>
