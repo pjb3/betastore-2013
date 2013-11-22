@@ -33,6 +33,8 @@ gem 'kaminari'
 gem 'rails_12factor', group: :production
 gem 'newrelic_rpm'
 
+gem 'progressbar'
+
 group :development do
   gem 'faker'
   gem 'hirb'

@@ -1,0 +1,19 @@
+n = 1000
+pbar = ProgressBar.new('orders', n)
+n.times do
+  credit_card = CreditCard.create!(
+    cardholder_name: Faker::Name.name,
+    card_number: Faker::Business.credit_card_number,
+    expiration_month: rand(11) + 1,
+    expiration_year: rand(5) + 2014)
+
+  Order.create!(
+    placed_at: rand(90).days.ago,
+    credit_card: credit_card,
+    line_items: [
+      LineItem.create!(product: Product.first, quantity: rand(2) + 1)
+    ]
+  )
+  pbar.inc
+end
+pbar.finish
