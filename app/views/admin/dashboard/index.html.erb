@@ -4,11 +4,13 @@
   <tr>
     <th>Day</th>
     <th>Orders</th>
+    <th>Revenue</th>
   </tr>
-<% @days.each do |day, count| %>
+<% @days.each do |day, count, revenue| %>
   <tr>
     <td><%= day %></td>
     <td><%= count %></td>
+    <td><%= number_to_currency revenue %></td>
   </tr>
 <% end %>
 </table>
