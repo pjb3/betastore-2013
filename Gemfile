@@ -1,5 +1,4 @@
 source 'https://rubygems.org'
-
 ruby '2.0.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -32,6 +31,7 @@ gem 'jbuilder', '~> 1.2'
 gem 'kaminari'
 
 gem 'rails_12factor', group: :production
+gem 'newrelic_rpm'
 
 group :development do
   gem 'faker'
