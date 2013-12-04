@@ -20,6 +20,10 @@ class Order < ActiveRecord::Base
     end
   end
 
+  def total_amount_in_cents
+    (total_amount * 100).to_i
+  end
+
   def set_total_amount
     self.total_amount = total_price
   end
