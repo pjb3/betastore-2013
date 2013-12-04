@@ -35,6 +35,8 @@ gem 'newrelic_rpm'
 
 gem 'progressbar'
 
+gem 'stripe'
+
 group :development do
   gem 'faker'
   gem 'hirb'
