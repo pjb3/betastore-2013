@@ -1,5 +1,4 @@
 class OrdersController < ApplicationController
-  skip_before_filter :require_log_in, only: [:new, :create]
 
   def new
     @order = Order.new
