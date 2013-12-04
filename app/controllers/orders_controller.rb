@@ -12,6 +12,7 @@ class OrdersController < ApplicationController
 
   def create
     @order = Order.new(order_params)
+    @order.credit_card.customer = current_customer
     if @order.save
       redirect_to root_path, notice: 'Your order has been placed'
     else
