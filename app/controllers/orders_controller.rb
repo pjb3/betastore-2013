@@ -20,7 +20,9 @@ class OrdersController < ApplicationController
           :card => params[:stripe_customer_token],
           :description => current_customer.email)
 
-        current_customer.update_attributes!(stripe_token: customer.id)
+        current_customer.stripe_token = customer.id
+        current_customer.save!
+
 
         Stripe::Charge.create(
           :amount => @order.total_amount_in_cents,
