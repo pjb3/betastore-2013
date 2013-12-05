@@ -12,6 +12,7 @@ class OrdersController < ApplicationController
 
   def create
     @order = Order.new(order_params)
+    @order.customer = current_customer
     @order.credit_card.customer = current_customer
     if @order.save
 
