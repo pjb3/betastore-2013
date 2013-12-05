@@ -14,6 +14,10 @@ class Order < ActiveRecord::Base
     where(customer_id: customer.id)
   end
 
+  def self.report
+    puts "HEY"
+  end
+
   def total_price
     line_items.inject(0) do |sum, li|
       li.total_price + sum
