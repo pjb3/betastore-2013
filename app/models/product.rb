@@ -16,4 +16,8 @@ class Product < ActiveRecord::Base
       .where('product_categorizations.category_id' => category_id)
   end
 
+  def self.search(term)
+    where("name ILIKE ?", "%#{term}%")
+  end
+
 end

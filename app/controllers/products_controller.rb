@@ -18,6 +18,10 @@ class ProductsController < ApplicationController
       scope = scope.in_category(params[:category_id])
     end
 
+    if params[:search].present?
+      scope = scope.search(params[:search])
+    end
+
     @products = scope.page(params[:page]).per(10)
 
     respond_to do |format|

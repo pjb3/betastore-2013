@@ -11,6 +11,11 @@
 
 <div id="cart" style="display: none"></div>
 
+<%= form_tag({}, method: 'get') do %>
+  <%= text_field_tag :search, params[:search] %>
+  <button type="submit">Search</button>
+<% end %>
+
 <h3>Categories</h3>
 <ul>
 <% @categories.each do |category| %>
