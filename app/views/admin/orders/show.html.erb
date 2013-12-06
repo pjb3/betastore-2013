@@ -1,0 +1,12 @@
+<ol class="breadcrumb">
+  <li><%= link_to 'Orders', admin_orders_path %></li>
+  <li class="active">Order <%= @order.id %></li>
+</ol>
+
+<p><strong>Customer:</strong> <%= @order.customer.try(:name) %></p>
+<p><strong>Tracking Number:</strong> <%= @order.tracking_number %></p>
+<p><strong>Total:</strong> <%= number_to_currency @order.total_amount %></p>
+
+<%= link_to 'Edit', edit_admin_order_path(@order), class: 'btn btn-default' %>
+<%= link_to 'Destroy', admin_order_path(@order), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+

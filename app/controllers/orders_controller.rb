@@ -24,7 +24,6 @@ class OrdersController < ApplicationController
         current_customer.stripe_token = customer.id
         current_customer.save!
 
-
         Stripe::Charge.create(
           :amount => @order.total_amount_in_cents,
           :currency => "usd",

@@ -1,13 +1,20 @@
 n = 1000
 pbar = ProgressBar.new('orders', n)
 n.times do
+  customer = Customer.create!(
+    name: Faker::Name.name,
+    email: Faker::Internet.email)
+
   credit_card = CreditCard.create!(
-    cardholder_name: Faker::Name.name,
-    card_number: Faker::Business.credit_card_number,
+    customer: customer,
+    last_4: '4242',
+    stripe_token: "card_#{rand(123123)}",
+    card_type: 'Visa',
     expiration_month: rand(11) + 1,
     expiration_year: rand(5) + 2014)
 
   Order.create!(
+    customer: customer,
     placed_at: rand(90).days.ago,
     credit_card: credit_card,
     line_items: [

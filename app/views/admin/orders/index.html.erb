@@ -1,0 +1,36 @@
+<% if flash[:notice].present? %>
+  <div class="alert alert-success"><%= notice %></div>
+<% end %>
+
+<ol class="breadcrumb">
+  <li class="active">Orders</li>
+</ol>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Customer</th>
+      <th>Total</th>
+      <th>Placed At</th>
+      <th>Tracking Number</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @orders.each do |order| %>
+      <tr>
+        <td><%= link_to order.id, admin_order_path(order) %></td>
+        <td><%= order.customer.try(:name) %></td>
+        <td><%= number_to_currency order.total_amount %></td>
+        <td><%= order.placed_at %></td>
+        <td><%= order.tracking_number %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<p>
+  <%= link_to 'New Product', new_admin_product_path, class: 'btn btn-primary' %>
+</p>
+
