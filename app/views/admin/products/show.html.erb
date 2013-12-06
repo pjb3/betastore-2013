@@ -7,7 +7,9 @@
   <li class="active"><%= @product.name %></li>
 </ol>
 
-<%= image_tag @product.image_url %>
+<%= image_tag @product.photo.url %>
+<%= image_tag @product.photo.url(:medium) %>
+<%= image_tag @product.photo.url(:thumb) %>
 
 <p><strong>Price:</strong> <%= number_to_currency @product.price %></p>
 

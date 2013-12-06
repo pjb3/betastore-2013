@@ -22,7 +22,7 @@ class Admin::ProductsController < ApplicationController
 
   def update
     if @product.update_attributes(product_params)
-      redirect_to admin_product_path(@product), 
+      redirect_to admin_product_path(@product),
                   notice: 'Product was successfully updated.'
     else
       render 'edit'
@@ -33,7 +33,7 @@ class Admin::ProductsController < ApplicationController
   # DELETE /admin/products/1.json
   def destroy
     @product.destroy
-    redirect_to admin_products_url, 
+    redirect_to admin_products_url,
                 notice: 'Product was successfully deleted.'
   end
 
@@ -45,6 +45,6 @@ class Admin::ProductsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def product_params
-      params.require(:product).permit(:name, :price)
+      params.require(:product).permit(:name, :price, :photo)
     end
 end

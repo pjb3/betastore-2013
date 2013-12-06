@@ -37,6 +37,8 @@ gem 'progressbar'
 
 gem 'stripe'
 
+gem 'paperclip'
+
 group :development do
   gem 'faker'
   gem 'hirb'
